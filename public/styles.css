@@ -1,0 +1,22 @@
+.charBlock {
+  position: relative;
+  width: 204px;
+  height: 204px;
+
+}
+
+.charImage {
+  border: 2px solid red;
+  position: absolute;
+}
+
+.charImage:hover {
+  opacity: 0.2;
+}
+
+.charName {
+  position: relative;
+  text-align: center;
+  top: 100px;
+  z-index: -3;
+}

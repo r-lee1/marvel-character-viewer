@@ -1,17 +1,27 @@
 import React from "react";
 import Card from "./Card";
 
+import characters from "../data.json";
+
 class CardIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       characterData:
-        "https://vignette.wikia.nocookie.net/scratchu8/images/9/92/Scratch_Cat.jpg/revision/latest?cb=20131008202423"
+        characters.data.results
     };
   }
 
   render() {
-    return <Card characterData={this.state.characterData} />;
+    return (
+      <ul>
+        {this.state.characterData.map(
+          character => {
+            return <Card characterData={character} key={character.id}/>;
+          }
+        )}
+      </ul>
+    );
   }
 }
 
