@@ -2,13 +2,12 @@ import React from 'react';
 import Modal from 'react-modal';
 import CardModal from './CardModal';
 
-Modal.setAppElement('#root');
-
 class Card extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
+      characterData: this.props.characterData,
       modalIsOpen: false
     };
 
@@ -17,7 +16,12 @@ class Card extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  // componentDidMount(){
+  //   Modal.setAppElement('#root');
+  // }
+
   openModal() {
+    console.log("clickylcickklwaea");
     this.setState({modalIsOpen: true});
   }
 
@@ -27,19 +31,26 @@ class Card extends React.Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
+    console.log("model closing");
+    this.setState({modalIsOpen: false}, () => console.log(this.state));
   }
 
   render() {
-    console.log(this.props.characterData);
     return (
-      <div onClick={this.openModal} className="charBlock">
-        <img className="charImage" src={`${this.props.characterData.thumbnail.path}/standard_xlarge.jpg`} />
-        <h2 className="charName">{this.props.characterData.name}</h2>
-        <Modal isOpen={this.state.modalIsOpen}>
-          <CardModal props={this.state}/>
+      <div>
+        <div onClick={this.openModal} className="charBlock">
+          <img className="charThumbnail" src={`${this.props.characterData.thumbnail.path}/standard_xlarge.jpg`} />
+          <h2 className="charName">{this.props.characterData.name}</h2>
+        </div>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={() => {this.setState({ modalIsOpen: false });}}
+          shouldCloseOnOverlayClick={true}
+          >
+          <CardModal characterData={this.state.characterData} closeModal={this.closeModal}/>
+          <button onClick={this.closeModal}>Close</button>
         </Modal>
-      </div>
+    </div>
     );
   }
 }

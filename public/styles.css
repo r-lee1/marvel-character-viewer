@@ -3,15 +3,14 @@
   width: 204px;
   height: 204px;
   cursor: pointer;
-
 }
 
-.charImage {
+.charThumbnail {
   border: 2px solid red;
   position: absolute;
 }
 
-.charImage:hover {
+.charThumbnail:hover {
   opacity: 0.2;
 }
 
@@ -20,4 +19,12 @@
   text-align: center;
   top: 100px;
   z-index: -3;
+}
+
+.modal {
+  z-index: 10000;
+}
+
+.overlay {
+  z-index: -2;
 }

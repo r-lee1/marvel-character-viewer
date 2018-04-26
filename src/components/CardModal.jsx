@@ -1,10 +1,14 @@
 import React from 'react';
 
 class CardModal extends React.Component {
+
   render() {
-    console.log(this.props);
     return(
-        <h1>hello</h1>
+        <div>
+          <img className="" src={`${this.props.characterData.thumbnail.path}/portrait_uncanny.jpg`} />
+          <h2 className="">{this.props.characterData.name}</h2>
+          <p>{this.props.characterData.description}</p>
+        </div>
     );
   }
 }
