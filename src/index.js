@@ -1,19 +1,16 @@
 import React from "react";
 import { render } from "react-dom";
-import Hello from "./Hello";
 
-const styles = {
-  fontFamily: "sans-serif",
-  textAlign: "center"
-};
+import CardIndex from "./components/CardIndex";
 
-const App = () => (
-  <div style={styles}>
-    <Hello name="CodeSandbox" />
-    <h2>Start editing to see some magic happen {"\u2728"}</h2>
-    <h3>What is this thing??</h3>
-    <h3>testingtestingtesting</h3>
-  </div>
-);
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <CardIndex />
+      </div>
+    );
+  }
+}
 
 render(<App />, document.getElementById("root"));
