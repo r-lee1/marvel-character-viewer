@@ -20,11 +20,3 @@
   top: 100px;
   z-index: -3;
 }
-
-.modal {
-  z-index: 10000;
-}
-
-.overlay {
-  z-index: -2;
-}
