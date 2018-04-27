@@ -16,9 +16,9 @@ class Card extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  // componentDidMount(){
-  //   Modal.setAppElement('#root');
-  // }
+  componentDidMount(){
+    Modal.setAppElement('#root');
+  }
 
   openModal() {
     console.log("clickylcickklwaea");
@@ -39,7 +39,7 @@ class Card extends React.Component {
     return (
       <div>
         <div onClick={this.openModal} className="charBlock">
-          <img className="charThumbnail" src={`${this.props.characterData.thumbnail.path}/standard_xlarge.jpg`} />
+          <img className="charThumbnail" src={`${this.props.characterData.thumbnail.path}/standard_xlarge.jpg`} alt={`${this.props.characterData.name} thumbnail`} />
           <h2 className="charName">{this.props.characterData.name}</h2>
         </div>
         <Modal
