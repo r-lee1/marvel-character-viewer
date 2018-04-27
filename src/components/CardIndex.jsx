@@ -27,13 +27,11 @@ class CardIndex extends React.Component {
   render() {
     return (
       <div>
-        <ul>
           {this.state.characterData.map(
             character => {
               return <Card characterData={character} key={character.id}/>;
             }
           )}
-        </ul>
         <Pagination characters={this.state.allCharacters} onChangePage={this.onChangePage}/>
       </div>
     );
