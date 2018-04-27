@@ -26,7 +26,7 @@ class Pagination extends React.Component {
 
   getPager(totalItems, currentPage) {
     currentPage = currentPage || 1;
-    let pageSize = 10;
+    let pageSize = 18;
     let totalPages = Math.ceil(totalItems / pageSize);
     let startPage = 1;
     let endPage = totalPages;
@@ -50,7 +50,7 @@ class Pagination extends React.Component {
 
   render() {
     return(
-      <ul>
+      <ul className="pager">
         {
           this.state.pager.pages.map(
             page =>

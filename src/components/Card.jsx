@@ -21,7 +21,6 @@ class Card extends React.Component {
   }
 
   openModal() {
-    console.log("clickylcickklwaea");
     this.setState({modalIsOpen: true});
   }
 
@@ -31,13 +30,12 @@ class Card extends React.Component {
   }
 
   closeModal() {
-    console.log("model closing");
     this.setState({modalIsOpen: false}, () => console.log(this.state));
   }
 
   render() {
     return (
-      <div>
+      <div className="char">
         <div onClick={this.openModal} className="charBlock">
           <img className="charThumbnail" src={`${this.props.characterData.thumbnail.path}/standard_xlarge.jpg`} alt={`${this.props.characterData.name} thumbnail`} />
           <h2 className="charName">{this.props.characterData.name}</h2>

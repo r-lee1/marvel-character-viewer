@@ -26,12 +26,14 @@ class CardIndex extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="charPage">
+        <div className="charIndex">
           {this.state.characterData.map(
             character => {
               return <Card characterData={character} key={character.id}/>;
             }
           )}
+        </div>
         <Pagination characters={this.state.allCharacters} onChangePage={this.onChangePage}/>
       </div>
     );

@@ -1,12 +1,48 @@
+body {
+  background-color: black;
+}
+
+.main {
+  width: 85%;
+  margin: 0 auto;
+  background-color: pink;
+}
+
+.header img {
+  width: 100%;
+  margin-top: -100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.char {
+  display: inline-block;
+}
+
+.charPage {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.charIndex {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .charBlock {
   position: relative;
-  width: 204px;
-  height: 204px;
+  width: 160px;
+  height: 160px;
   cursor: pointer;
 }
 
 .charThumbnail {
   border: 2px solid red;
+  width: 154px;
+  height: 154px;
   position: absolute;
 }
 
@@ -17,6 +53,11 @@
 .charName {
   position: relative;
   text-align: center;
+  color: white;
   top: 100px;
-  z-index: -3;
+  z-index: -1;
+}
+
+.pager {
+  background-color: gray;
 }
