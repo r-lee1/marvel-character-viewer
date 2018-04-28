@@ -10,3 +10,12 @@ Treat this as an app you’ll continue to use and build upon, and all of the imp
 Here is the Marvel Api doc: https://developer.marvel.com/docs
 
 Please use this site to write your React code: https://codesandbox.io/s/new
+
+
+
+TO-DOS
+-add pagination button
+-style character card
+-loading animation
+-hide key
+-refactor & organize
