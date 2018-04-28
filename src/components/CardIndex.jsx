@@ -15,6 +15,7 @@ class CardIndex extends React.Component {
     };
 
     this.fetchCharacterData = this.fetchCharacterData.bind(this);
+    this.onScroll = this.onScroll.bind(this);
     // this.onChangePage = this.onChangePage.bind(this);
   }
 
@@ -26,8 +27,8 @@ class CardIndex extends React.Component {
     window.addEventListener('scroll', this.onScroll, false);
   }
 
-  onScroll = () => {
-  if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) && this.props.characters.length) {
+  onScroll() {
+  if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 300) && this.props.characters.length) {
     this.fetchCharacterData(this.state.currentPage);
     this.setState({currentPage: this.state.currentPage + 1});
   }
