@@ -30,7 +30,7 @@ class Card extends React.Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false}, () => console.log(this.state));
+    this.setState({modalIsOpen: false});
   }
 
   render() {
