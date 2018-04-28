@@ -6,44 +6,44 @@ class Pagination extends React.Component {
 
    this.state = { pager: {} };
 
-   this.setPage = this.setPage.bind(this);
+   // this.setPage = this.setPage.bind(this);
   }
 
-  componentWillMount() {
-    this.setPage(1);
-  }
+  // componentWillMount() {
+  //   this.setPage(1);
+  // }
 
-  setPage(page) {
-    let { characters, onChangePage } = this.props;
+  // setPage(page) {
+    // let { characters, onChangePage } = this.props;
 
-    let pager = this.getPager(characters.length, page);
-    let pageOfItems = characters.slice(pager.startIndex, pager.endIndex);
+    // let pager = this.getPager(characters.length, page);
+    // let pageOfItems = characters.slice(pager.startIndex, pager.endIndex);
 
-    this.setState({pager: pager});
+    // this.setState({pager: pager});
 
-    onChangePage(pageOfItems);
-  }
+    // onChangePage(pageOfItems);
+  // }
 
   getPager(totalItems, currentPage) {
-    currentPage = currentPage || 1;
-    let pageSize = 30;
-    let totalPages = Math.ceil(totalItems / pageSize);
-    let startPage = 1;
-    let endPage = totalPages;
+    currentPage = currentPage || 0;
+    let pageSize = 100;
+    // let totalPages = Math.ceil(totalItems / pageSize);
+    // let startPage = 1;
+    // let endPage = totalPages;
 
     //calculate start and end item indexes
-    let startIndex = (currentPage - 1) * pageSize;
-    let endIndex = startIndex + pageSize;
+    // let startIndex = (currentPage - 1) * pageSize;
+    // let endIndex = startIndex + pageSize;
 
-    let pages = [...Array(endPage).keys()].map(i => i + 1);
+    // let pages = [...Array(endPage).keys()].map(i => i + 1);
 
     return {
-      totalPages: totalPages,
-      startPage: startPage,
-      endPage: endPage,
-      pages: pages,
-      startIndex: startIndex,
-      endIndex: endIndex
+      // totalPages: totalPages,
+      // startPage: startPage,
+      // endPage: endPage,
+      // pages: pages,
+      // startIndex: startIndex,
+      // endIndex: endIndex
     };
 
   }
@@ -51,15 +51,17 @@ class Pagination extends React.Component {
   render() {
     return(
       <div className="pager">
-        {
-          this.state.pager.pages.map(
-            page =>
-              <a onClick={() => this.setPage(page)} key={page}>{page}</a>
-          )
-        }
+        <a onClick={() => this.props.fetchCharacterData(1)}>More</a>
       </div>
     );
   }
 }
 
 export default Pagination;
+
+// {
+//   this.state.pager.pages.map(
+//     page =>
+//       <a onClick={() => this.setPage(page)} key={page}>{page}</a>
+//   )
+// }
