@@ -1,8 +1,8 @@
 import React from "react";
-import Card from "./Card";
+import Character from "./Character";
 import Pagination from "./Pagination";
 
-class CardIndex extends React.Component {
+class CharacterIndex extends React.Component {
   constructor(props) {
     super(props);
 
@@ -69,7 +69,7 @@ class CardIndex extends React.Component {
         <div className="charIndex">
           {this.state.characters.map(
             character => {
-              return <Card characterData={character} key={character.id}/>;
+              return <Character characterData={character} key={character.id}/>;
             }
           )}
         </div>
@@ -88,4 +88,4 @@ class CardIndex extends React.Component {
   }
 }
 
-export default CardIndex;
+export default CharacterIndex;

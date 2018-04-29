@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import CardModal from './CardModal';
 
-class Card extends React.Component {
+class Character extends React.Component {
   constructor(props) {
     super(props);
 
@@ -56,4 +56,4 @@ class Card extends React.Component {
   }
 }
 
-export default Card;
+export default Character;

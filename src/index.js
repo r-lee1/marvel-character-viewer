@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 
 import { Header } from "./components/Header";
-import CardIndex from "./components/CardIndex";
+import CharacterIndex from "./components/CharacterIndex";
 
 class App extends React.Component {
 
@@ -30,7 +30,7 @@ class App extends React.Component {
     return (
       <div className="main">
         <Header />
-        <CardIndex characters={this.state.characters}/>
+        <CharacterIndex characters={this.state.characters}/>
       </div>
     );
   }
