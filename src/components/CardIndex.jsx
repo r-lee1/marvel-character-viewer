@@ -74,11 +74,14 @@ class CardIndex extends React.Component {
           )}
         </div>
         {this.state.isLoading &&
-          <div className="loading">
+          <div className="loader">
             <span>Loading...</span>
           </div>}
         {!this.state.endOfContent &&
-          <Pagination characters={this.state.characters} currentPage={this.state.currentPage} onChangePage={this.onChangePage} fetchCharacterData={this.fetchCharacterData}/>
+          <Pagination
+            characters={this.state.characters}
+            currentPage={this.state.currentPage}
+            fetchCharacterData={this.fetchCharacterData}/>
           }
       </div>
     );
