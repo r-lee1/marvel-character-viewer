@@ -41,12 +41,13 @@ class Card extends React.Component {
           <h2 className="charName">{this.props.characterData.name}</h2>
         </div>
         <Modal
+          className="modalPortal"
           isOpen={this.state.modalIsOpen}
           onRequestClose={() => {this.setState({ modalIsOpen: false });}}
           shouldCloseOnOverlayClick={true}
           >
           <CardModal characterData={this.state.characterData} closeModal={this.closeModal}/>
-          <button onClick={this.closeModal}>Close</button>
+          <button className="modalCloseBtn" onClick={this.closeModal}>X</button>
         </Modal>
     </div>
     );
