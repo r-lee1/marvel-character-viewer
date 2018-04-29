@@ -12,13 +12,10 @@ class CardIndex extends React.Component {
       currentPage: 1,
       isLoading: false,
       endOfContent: false
-      // characterSet:
-      //   this.props.characters
     };
 
     this.fetchCharacterData = this.fetchCharacterData.bind(this);
     this.onScroll = this.onScroll.bind(this);
-    // this.onChangePage = this.onChangePage.bind(this);
   }
 
   componentDidMount() {
@@ -65,10 +62,6 @@ class CardIndex extends React.Component {
       isLoading: false
     };
   }
-
-  // onChangePage(pageOfCharacters) {
-  //   this.setState({characterSet: pageOfCharacters});
-  // }
 
   render() {
     return (
