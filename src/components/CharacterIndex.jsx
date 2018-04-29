@@ -75,7 +75,7 @@ class CharacterIndex extends React.Component {
         </div>
         {this.state.isLoading &&
           <div className="loader">
-            <span>Loading...</span>
+            <h4>Loading...</h4>
           </div>}
         {!this.state.endOfContent &&
           <Pagination

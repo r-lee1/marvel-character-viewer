@@ -24,7 +24,11 @@ class App extends React.Component {
 
   render() {
     if(this.state.characters.length < 1) {
-      return null;
+      return (
+        <div className="loader">
+          <h2>Loading...</h2>
+        </div>
+      );
     }
 
     return (
