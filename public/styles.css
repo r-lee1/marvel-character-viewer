@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  font-family: 'Jua', sans-serif;
 }
 
 .main {
@@ -54,7 +55,8 @@ body {
   position: relative;
   text-align: center;
   color: white;
-  top: 100px;
+  top: 75px;
+  font-size: 20px;
   z-index: -1;
 }
 
@@ -74,4 +76,13 @@ body {
   border: 1px solid purple;
   cursor: pointer;
   padding: 10px;
+}
+
+.loading {
+  width: 80%;
+  height: 30px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 30px;
+  color: #fefefe;
 }

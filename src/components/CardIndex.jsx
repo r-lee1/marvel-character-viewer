@@ -9,7 +9,9 @@ class CardIndex extends React.Component {
     this.state = {
       characters:
         this.props.characters,
-      currentPage: 1
+      currentPage: 1,
+      isLoading: false,
+      endOfContent: false
       // characterSet:
       //   this.props.characters
     };
@@ -28,19 +30,29 @@ class CardIndex extends React.Component {
   }
 
   onScroll() {
-  if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 300) && this.props.characters.length) {
-    this.fetchCharacterData(this.state.currentPage);
-    this.setState({currentPage: this.state.currentPage + 1});
+    if (
+      (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 300) &&
+      this.props.characters.length) {
+        this.fetchCharacterData(this.state.currentPage);
+      }
   }
-}
 
   fetchCharacterData(page) {
-    let offset = 50 * page;
-    let newEndpoint = `https://gateway.marvel.com:443/v1/public/characters?limit=50&offset=${offset}&apikey=f2e4cc1aa98d9360e478bc7764a35844`;
+    let lastCard = document.querySelector('.char:last-of-type h2').textContent;
 
-    fetch(newEndpoint)
-      .then(res => res.json())
-      .then(res => this.onSetResult(res.data.results));
+    if (lastCard === "Zzzax") {
+      this.setState({endOfContent: true});
+      return;
+    }
+
+    if(!this.state.isLoading) {
+      let offset = 50 * page;
+      let newEndpoint = `https://gateway.marvel.com:443/v1/public/characters?limit=50&offset=${offset}&apikey=f2e4cc1aa98d9360e478bc7764a35844`;
+      this.setState({isLoading: true, currentPage: this.state.currentPage + 1});
+      fetch(newEndpoint)
+        .then(res => res.json())
+        .then(res => this.onSetResult(res.data.results));
+    }
   }
 
   onSetResult(result) {
@@ -49,7 +61,8 @@ class CardIndex extends React.Component {
 
   applySetResult(result) {
     return {
-      characters: [...this.state.characters, ...result]
+      characters: [...this.state.characters, ...result],
+      isLoading: false
     };
   }
 
@@ -67,7 +80,13 @@ class CardIndex extends React.Component {
             }
           )}
         </div>
-        <Pagination characters={this.state.characters} onChangePage={this.onChangePage} fetchCharacterData={this.fetchCharacterData}/>
+        {this.state.isLoading &&
+          <div className="loading">
+            <span>Loading...</span>
+          </div>}
+        {!this.state.endOfContent &&
+          <Pagination characters={this.state.characters} currentPage={this.state.currentPage} onChangePage={this.onChangePage} fetchCharacterData={this.fetchCharacterData}/>
+          }
       </div>
     );
   }

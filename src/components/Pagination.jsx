@@ -2,11 +2,18 @@ import React from "react";
 
 class Pagination extends React.Component {
   constructor(props) {
-   super(props);
+    super(props);
 
-   this.state = { pager: {} };
+    this.state = {
+      pager: {},
+      currentPage: this.props.currentPage
+    };
 
    // this.setPage = this.setPage.bind(this);
+  }
+
+  componentWillReceiveProps() {
+    this.setState({currentPage: this.props.currentPage});
   }
 
   // componentWillMount() {
@@ -51,7 +58,7 @@ class Pagination extends React.Component {
   render() {
     return(
       <div className="pager">
-        <a onClick={() => this.props.fetchCharacterData(1)}>More</a>
+        <a onClick={() => this.props.fetchCharacterData(this.state.currentPage)}>More</a>
       </div>
     );
   }
