@@ -10,7 +10,7 @@ class CardModal extends React.Component {
             <img className="cardPortrait"
               src={`${this.props.characterData.thumbnail.path}/portrait_uncanny.jpg`}
               alt={`${this.props.characterData.name} portrait`}/>
-            <p className="cardDescription">{this.props.characterData.description}</p>
+            <p className="cardDescription">{this.props.characterData.description ? this.props.characterData.description : "Information Not Available"}</p>
           </div>
         </div>
     );
