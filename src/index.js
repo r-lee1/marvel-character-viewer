@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 
 import { Header } from "./components/Header";
-import CharacterIndex from "./components/CharacterIndex";
+import CharacterIndex from "./components/characterIndex/CharacterIndex";
 
 class App extends React.Component {
 
