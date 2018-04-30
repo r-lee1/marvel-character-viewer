@@ -4,7 +4,7 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
-  "homepage" : "http://r-lee1.github.io/marvel-character-viewer",
+  "homepage" : "https://r-lee1.github.io/marvel-character-viewer",
   "dependencies": {
     "react": "16.3.2",
     "react-dom": "16.3.2",
