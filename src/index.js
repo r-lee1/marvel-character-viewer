@@ -4,6 +4,8 @@ import { render } from "react-dom";
 import { Header } from "./components/Header";
 import CharacterIndex from "./components/characterIndex/CharacterIndex";
 
+import { keys } from "./keys";
+
 class App extends React.Component {
 
   constructor(props) {
@@ -16,7 +18,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let endpoint = "https://gateway.marvel.com:443/v1/public/characters?limit=50&offset=0&apikey=f2e4cc1aa98d9360e478bc7764a35844";
+    let apikey = keys().apikey;
+    let endpoint = `https://gateway.marvel.com:443/v1/public/characters?limit=50&offset=0&apikey=${apikey}`;
     fetch(endpoint)
       .then(res => res.json())
       .then(res => this.setState({characters: res.data.results}));

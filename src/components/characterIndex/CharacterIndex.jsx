@@ -2,6 +2,8 @@ import React from "react";
 import Character from "./Character";
 import Pagination from "./Pagination";
 
+import { keys } from "../../keys";
+
 class CharacterIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +15,8 @@ class CharacterIndex extends React.Component {
       isLoading: false,
       endOfContent: false
     };
+
+    this.apikey = keys().apikey;
 
     this.fetchCharacterData = this.fetchCharacterData.bind(this);
     this.onScroll = this.onScroll.bind(this);
@@ -44,7 +48,7 @@ class CharacterIndex extends React.Component {
 
     if(!this.state.isLoading) {
       let offset = 50 * page;
-      let newEndpoint = `https://gateway.marvel.com:443/v1/public/characters?limit=50&offset=${offset}&apikey=f2e4cc1aa98d9360e478bc7764a35844`;
+      let newEndpoint = `https://gateway.marvel.com:443/v1/public/characters?limit=50&offset=${offset}&apikey=${this.apikey}`;
       this.setState({isLoading: true, currentPage: this.state.currentPage + 1});
       fetch(newEndpoint)
         .then(res => res.json())
