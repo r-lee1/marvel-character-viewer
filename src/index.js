@@ -19,10 +19,18 @@ class App extends React.Component {
 
   componentDidMount() {
     let apikey = keys().apikey;
-    let endpoint = `https://gateway.marvel.com:443/v1/public/characters?limit=50&offset=0&apikey=${apikey}`;
+    let endpoint = `https://gateway.marvel.com:443/v1/public/characters?limit=100&offset=0&apikey=${apikey}`;
     fetch(endpoint)
       .then(res => res.json())
       .then(res => this.setState({characters: res.data.results}));
+  }
+
+  cleanData(fetchedCharacters) {
+    let arr = ["Pete Wisdom", "Synch", "Unus (Ultimate)"];
+    return fetchedCharacters.filter((char) => {
+      return (char.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" &&
+      char.description !== "" && !arr.includes(char.name));
+    });
   }
 
   render() {
@@ -37,7 +45,7 @@ class App extends React.Component {
     return (
       <div className="main">
         <Header />
-        <CharacterIndex characters={this.state.characters}/>
+        <CharacterIndex characters={this.state.characters} cleanData={this.cleanData}/>
       </div>
     );
   }

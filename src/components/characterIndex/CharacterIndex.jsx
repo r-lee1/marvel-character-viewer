@@ -8,9 +8,11 @@ class CharacterIndex extends React.Component {
   constructor(props) {
     super(props);
 
+    let { characters, cleanData } = this.props;
+
     this.state = {
       characters:
-        this.props.characters,
+        cleanData(characters),
       currentPage: 1,
       isLoading: false,
       endOfContent: false
@@ -47,8 +49,8 @@ class CharacterIndex extends React.Component {
     }
 
     if(!this.state.isLoading) {
-      let offset = 50 * page;
-      let newEndpoint = `https://gateway.marvel.com:443/v1/public/characters?limit=50&offset=${offset}&apikey=${this.apikey}`;
+      let offset = 100 * page;
+      let newEndpoint = `https://gateway.marvel.com:443/v1/public/characters?limit=100&offset=${offset}&apikey=${this.apikey}`;
       this.setState({isLoading: true, currentPage: this.state.currentPage + 1});
       fetch(newEndpoint)
         .then(res => res.json())
@@ -61,8 +63,9 @@ class CharacterIndex extends React.Component {
   }
 
   applySetResult(result) {
+    let cleanResult = this.props.cleanData(result);
     return {
-      characters: [...this.state.characters, ...result],
+      characters: [...this.state.characters, ...cleanResult],
       isLoading: false
     };
   }
