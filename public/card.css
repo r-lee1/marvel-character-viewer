@@ -1,10 +1,9 @@
 .modalPortal {
-  height: 70vh;
+  height: 80vh;
   width:70vw;
-  max-height: 550px;
   max-width: 800px;
   position: relative;
-  margin-top: 10vh;
+  margin-top: 5vh;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid rgb(204, 204, 204);
@@ -157,7 +156,7 @@
 }
 
 /* mobile-landscape */
-@media screen and (max-width: 825px) and (orientation: landscape) {
+@media screen and (max-width: 900px) and (orientation: landscape) {
   .modalPortal {
     width: 100vw;
     height: 100vw;
@@ -238,9 +237,10 @@
 
 /* tablet-portrait */
 
-@media screen and (max-width: 901px) and (min-width: 690px){
+@media screen and (max-width: 1024px) and (min-width: 690px) and (orientation: portrait){
   .modalPortal {
     width: 90vw;
+    height: 60vh;
     max-width: 90vw;
     position: relative;
     margin-left: auto;
