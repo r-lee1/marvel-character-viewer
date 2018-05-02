@@ -1,6 +1,5 @@
 import React from 'react';
-import Modal from 'react-modal';
-import CardModal from './CardModal';
+import Modal from '../Modal';
 
 class Character extends React.Component {
   constructor(props) {
@@ -12,21 +11,11 @@ class Character extends React.Component {
     };
 
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-  }
-
-  componentDidMount(){
-    Modal.setAppElement('#root');
   }
 
   openModal() {
     this.setState({modalIsOpen: true});
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
   }
 
   closeModal() {
@@ -43,13 +32,10 @@ class Character extends React.Component {
           <h2 className="charName">{this.props.characterData.name}</h2>
         </div>
         <Modal
-          className="modalPortal"
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={() => {this.setState({ modalIsOpen: false });}}
-          shouldCloseOnOverlayClick={true}
+          modalIsOpen={this.state.modalIsOpen}
+          closeModal={this.closeModal}
+          characterData={this.state.characterData}
           >
-          <CardModal characterData={this.state.characterData} closeModal={this.closeModal}/>
-          <button className="modalCloseBtn" onClick={this.closeModal}>X</button>
         </Modal>
     </div>
     );

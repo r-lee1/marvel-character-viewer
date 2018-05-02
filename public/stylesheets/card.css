@@ -2,7 +2,7 @@
   height: 80vh;
   width:70vw;
   max-width: 800px;
-  position: relative;
+  position: fixed;
   margin-top: 5vh;
   margin-left: auto;
   margin-right: auto;
@@ -13,6 +13,10 @@
   outline: none;
   padding: 20px;
   background-color: #880e1f;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modalPortal .modalCloseBtn {
@@ -34,6 +38,16 @@
 .modalPortal .modalCloseBtn:hover {
   background: #3cb0fd;
   text-decoration: none;
+}
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .cardContent {
@@ -84,7 +98,7 @@
     width:100vw;
     max-width: 100vw;
     max-height: 900px;
-    position: relative;
+    position: fixed;
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
@@ -94,6 +108,9 @@
     outline: none;
     padding: 0;
     background-color: #880e1f;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
   }
 
   .modalPortal .modalCloseBtn {
@@ -156,13 +173,13 @@
 }
 
 /* mobile-landscape */
-@media screen and (max-width: 787px) and (orientation: landscape) {
+@media screen and (max-width: 823px) and (orientation: landscape) {
   .modalPortal {
     width: 100vw;
     height: 100vw;
     max-height: 700px;
     max-width: 100vw;
-    position: relative;
+    position: fixed;
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
@@ -172,6 +189,9 @@
     outline: none;
     padding: 0;
     background-color: #880e1f;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
   }
 
   .modalPortal .modalCloseBtn {
@@ -242,7 +262,7 @@
     width: 90vw;
     height: 60vh;
     max-width: 90vw;
-    position: relative;
+    position: fixed;
     margin-left: auto;
     margin-right: auto;
     border: none;
