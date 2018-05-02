@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CardModal extends React.Component {
+class Card extends React.Component {
 
   render() {
     return(
@@ -17,4 +17,4 @@ class CardModal extends React.Component {
   }
 }
 
-export default CardModal;
+export default Card;
