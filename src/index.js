@@ -18,6 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    //fetch first set of characters when app mounts and set in local state
     let apikey = keys().apikey;
     let endpoint = `https://gateway.marvel.com:443/v1/public/characters?limit=100&offset=0&apikey=${apikey}`;
     fetch(endpoint)
@@ -25,6 +26,7 @@ class App extends React.Component {
       .then(res => this.setState({characters: res.data.results}));
   }
 
+//remove characters with no thumbnail or description
   cleanData(fetchedCharacters) {
     let arr = ["Pete Wisdom", "Synch", "Unus (Ultimate)"];
     return fetchedCharacters.filter((char) => {
@@ -34,6 +36,7 @@ class App extends React.Component {
   }
 
   render() {
+    //render loading bar unless characters have been fetched
     if(this.state.characters.length < 1) {
       return (
         <div className="loader">

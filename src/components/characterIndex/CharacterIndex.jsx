@@ -32,6 +32,7 @@ class CharacterIndex extends React.Component {
     window.addEventListener('scroll', this.onScroll, false);
   }
 
+//fetch more characters when scrolled to bottom of character index
   onScroll() {
     if (
       (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 300) &&
@@ -40,6 +41,7 @@ class CharacterIndex extends React.Component {
       }
   }
 
+//fetch next set of characters when not currently fetching and not at end of available data
   fetchCharacterData(page) {
     let lastCard = document.querySelector('.char:last-of-type h2').textContent;
 
@@ -62,6 +64,7 @@ class CharacterIndex extends React.Component {
     this.setState(this.applySetResult(result));
   }
 
+//sort and append newly fetch characters to previous state
   applySetResult(result) {
     let cleanResult = this.props.cleanData(result);
     return {
