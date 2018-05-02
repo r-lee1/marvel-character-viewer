@@ -29,7 +29,7 @@ class CharacterIndex extends React.Component {
   }
 
   componentWillUnmount() {
-    window.addEventListener('scroll', this.onScroll, false);
+    window.removeEventListener('scroll', this.onScroll, false);
   }
 
 //fetch more characters when scrolled to bottom of character index
